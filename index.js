@@ -5,6 +5,7 @@ const employee = require('./Dev/Employee.js');
 const engineer = require('./Dev/Engineer');
 const intern = require('./Dev/Intern');
 const manager = require('./Dev/Manager');
+const generateHTML = require('./Dev/team_profile.js');
 
 //Array of prompts for user input
 const profilePrompts = [];
@@ -78,3 +79,14 @@ inquirer
             validate: (value) => { if (value) { return true} else { return 'Please enter the school for the team member.'} },
         },
     ])
+    .then(data => {
+        const employeeProfile = generateHTML(data);
+        console.log(data);
+
+        fs.writeFile('index.html', employeeProfile, (error) => {
+            if(error) {
+                console.log(error)
+            }
+        });
+    })
+

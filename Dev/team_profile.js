@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+function generateHTML(data) {
+    return `<!DOCTYPE html>
     <html lang="en">
     <head>
     <meta charset="UTF-8">
@@ -14,23 +15,26 @@
     <h1>Team Profiles<h1>
     </div>
     <div class="cards">
-    <h2>Manager</h2>
+    <h2>${data.teamManager}</h2>
     <div class="cardBody">
-    <p>1234</p>
-    <p>manager@email.com</p>
-    <p>4125551212</p>
+    <p>${data.managerID}</p>
+    <p>${data.managerEmail}</p>
+    <p>${data.managerPhone}</p>
     </div>
     <div class="cardBody" id="engineer">
-    <h2>Engineer</h2>
-    <p>987679</p>
-    <p>email@email.com</p>
-    <p>github.com/employee</p>
+    <h2>${data.engName}</h2>
+    <p>${data.employeeID}</p>
+    <p>${data.employeeEmail}</p>
+    <p>${data.github}</p>
     </div>
     <div class="cardBody" id="intern">
-    <h2>Intern</h2>
-    <p>987679</p>
-    <p>email@email.com</p>
-    <p>School</p>
+    <h2>${data.internName}</h2>
+    <p>${data.employeeID}</p>
+    <p>${data.employeeEmail}</p>
+    <p>${data.school}</p>
     </div>
 </body>
-</html>
+</html>`
+}
+
+module.exports = generateHTML;
