@@ -6,6 +6,7 @@ const engineer = require('./Dev/Engineer');
 const intern = require('./Dev/Intern');
 const manager = require('./Dev/Manager');
 const generateHTML = require('./Dev/team_profile.js');
+const style = require('.Dev/style.css');
 
 //Array of prompts for user input
 const profilePrompts = [];
