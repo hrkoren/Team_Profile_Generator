@@ -1,7 +1,7 @@
 //Packages needed for application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const { endianness } = require('os');
+// const { endianness } = require('os');
 const employee = require('./Dev/Employee.js');
 const engineer = require('./Dev/Engineer');
 const intern = require('./Dev/Intern');
@@ -10,6 +10,8 @@ const generateHTML = require('./Dev/team_profile.js');
 
 //Array of prompts for user input
 const profilePrompts = [];
+
+//function to start prompts with team manager
 function managerPrompt() {
     inquirer
         .prompt([
@@ -40,8 +42,7 @@ function managerPrompt() {
                 employeeChoice();
             })
 }
-
-
+//function to prompt for employee type or to quit
 function employeeChoice() {
     inquirer
         .prompt([
@@ -58,14 +59,14 @@ function employeeChoice() {
                     case 'Intern':
                         return internChoice();
                     case 'Finish Building My Team':
-                        return quit;
+                        return quit();
                     default:
                         break;
                 }
                 console.log(data);
             })
 }
-
+//function to prompt engineer questions when engineer is selected
 function engineerChoice() {
     inquirer
         .prompt([
@@ -98,7 +99,7 @@ function engineerChoice() {
             console.log(info);
         });
 }
-
+//function to prompt intern questions when intern is selected
 function internChoice() {
     inquirer
         .prompt([
@@ -132,17 +133,17 @@ function internChoice() {
                 name: 'school',
                 validate: (value) => { if (value) { return true } else { return 'Please enter the school for the team member.' } },
             },
-        ]).then(info => {
+        ]).then(internInfo => {
             employeeChoice();
-            console.log(info);
+            console.log(internInfo);
         });
 }
-
-function quit() {
+//function to quit prompting and generate html file
+function quit(data) {
     const employeeProfile = generateHTML(data);
     console.log(data);
 
-    fs.writeFileSync('index.html', employeeProfile, (error) => {
+    fs.writeFile('index.html', employeeProfile, (error) => {
         if (error) {
             console.log(error)
         }
