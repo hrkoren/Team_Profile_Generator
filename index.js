@@ -4,11 +4,12 @@ const inquirer = require('inquirer');
 const employee = require('./Dev/Employee.js');
 const engineer = require('./Dev/Engineer');
 const intern = require('./Dev/Intern');
-const manager = require('./Dev/Manager');
+const Manager = require('./Dev/Manager');
 const generateHTML = require('./Dev/team_profile.js');
 
 //Array of prompts for user input
 const profilePrompts = [];
+const teamMembers = []
 
 //function to start prompts with team manager
 function managerPrompt() {
@@ -37,7 +38,11 @@ function managerPrompt() {
                 message: 'Please enter the phone number for the team manager.',
                 name: 'managerPhone',
                 validate: (value) => { if (value) { return true } else { return 'Please enter the phone number for the team manager.' } },
-            }]).then(() => {
+            }]).then((answers) => {
+                const { name, employeeID, managerEmail, managerPhone } = answers;
+                const manager = new Manager(name, employeeID, managerEmail, managerPhone);
+                console.log(manager)
+                teamMembers.push(manager)
                 employeeChoice();
             })
 }
@@ -94,6 +99,8 @@ function engineerChoice() {
                 validate: (value) => { if (value) { return true } else { return 'Please enter the GitHub username for the team member.' } },
             },
         ]).then(info => {
+            const engineer = new Engineer() // <-- plug in your values 
+            teamMembers.push(engineer)
             employeeChoice();
             console.log(info);
         });
@@ -138,9 +145,9 @@ function internChoice() {
         });
 }
 //function to quit prompting and generate html file
-function quit(employee) {
-    const employeeProfile = generateHTML(employee);
-    console.log(employee);
+function quit() {
+    const employeeProfile = generateHTML(teamMembers);
+    // console.log(teamMembers);
 
     fs.writeFile('index.html', employeeProfile, (error) => {
         if (error) {

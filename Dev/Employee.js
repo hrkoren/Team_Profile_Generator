@@ -3,10 +3,10 @@ class Employee {
         this.name = name;
         this.employeeID = employeeID;
     }
-    returnName() {
+    getName() {
         return this.name;
     }
-    returnID() {
+    getID() {
         return this.employeeID
     }
 }
