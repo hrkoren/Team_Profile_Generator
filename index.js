@@ -58,7 +58,7 @@ inquirer
                 case 'Intern':
                     return internChoice();
                 case 'Finish Building My Team':
-                    return stopChoice;
+                    return quit;
                 default:
                     break;
             }
@@ -132,7 +132,10 @@ function internChoice() {
                 name: 'school',
                 validate: (value) => { if (value) { return true } else { return 'Please enter the school for the team member.' } },
             },
-        ])
+        ]).then(info => {
+            employeeChoice();
+            console.log(info);
+        });
     }
             // fs.writeFile('index.html', employeeProfile, (error) => {
             //     if(error) {
@@ -141,16 +144,15 @@ function internChoice() {
             // });
 
 
-    //   
-    // .then(data => {
-    //     const employeeProfile = generateHTML(data);
-    //     console.log(data);
+   function quit() {
+        const employeeProfile = generateHTML(data);
+        console.log(data);
 
-    //     fs.writeFile('index.html', employeeProfile, (error) => {
-    //         if(error) {
-    //             console.log(error)
-    //         }
-    //     });
-
+        fs.writeFileSync('index.html', employeeProfile, (error) => {
+            if(error) {
+                console.log(error)
+            }
+        });
+    }
 
     managerPrompt();
