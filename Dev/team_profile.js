@@ -58,19 +58,20 @@ function generateHTML(data) {
     <div class="cardBody" id="manager">
     <h2 class="manHeading">${data.teamManager}</h2>
     <p>${data.managerID}</p>
-    <p>${data.managerEmail}</p>
+    <p>`<a href="mailto:${data.managerEmail}">${data.managerEmail}</a>`</p>
     <p>${data.managerPhone}</p>
     </div>
     <div class="cardBody" id="engineer">
     <h2 class="engHeading">${data.engName}</h2>
     <p>${data.employeeID}</p>
     <p>${data.employeeEmail}</p>
-    <p>${data.github}</p>
+    <p>`<a href="${data.github}">Github</a>`</p>
     </div>
     <div class="cardBody" id="intern">
     <h2 class="intHeading">${data.internName}</h2>
     <p>${data.employeeID}</p>
     <p>${data.employeeEmail}</p>
+    <p>`<a href="${data.github}">Github</a>`</p>
     <p>${data.school}</p>
     </div>
 </body>

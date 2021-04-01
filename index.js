@@ -1,7 +1,6 @@
 //Packages needed for application
 const fs = require('fs');
 const inquirer = require('inquirer');
-// const { endianness } = require('os');
 const employee = require('./Dev/Employee.js');
 const engineer = require('./Dev/Engineer');
 const intern = require('./Dev/Intern');
@@ -18,13 +17,13 @@ function managerPrompt() {
             {
                 type: 'input',
                 message: 'Please enter the name of the team manager.',
-                name: 'teamManager',
+                name: 'name',
                 validate: (value) => { if (value) { return true } else { return 'Please enter the team manager.' } },
             },
             {
                 type: 'input',
                 message: 'Please enter the employee ID for the team manager.',
-                name: 'managerID',
+                name: 'employeeID',
                 validate: (value) => { if (value) { return true } else { return 'Please enter an employee ID.' } },
             },
             {
@@ -73,7 +72,7 @@ function engineerChoice() {
             {
                 type: 'input',
                 message: 'Please enter the name of the Engineer.',
-                name: 'engName',
+                name: 'name',
                 validate: (value) => { if (value) { return true } else { return 'Please enter the name for the new team member.' } },
             },
             {
@@ -106,7 +105,7 @@ function internChoice() {
             {
                 type: 'input',
                 message: 'Please enter the name of the Intern.',
-                name: 'internName',
+                name: 'name',
                 validate: (value) => { if (value) { return true } else { return 'Please enter the name for the new team member.' } },
             },
             {
