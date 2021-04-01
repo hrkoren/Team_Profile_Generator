@@ -139,9 +139,9 @@ function internChoice() {
         });
 }
 //function to quit prompting and generate html file
-function quit(data) {
-    const employeeProfile = generateHTML(data);
-    console.log(data);
+function quit(employee) {
+    const employeeProfile = generateHTML(employee);
+    console.log(employee);
 
     fs.writeFile('index.html', employeeProfile, (error) => {
         if (error) {
