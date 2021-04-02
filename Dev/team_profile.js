@@ -19,8 +19,8 @@ function generateHTML(data) {
         <h2 class="engHeading">${engineer.getRole()}</h2>
         <p><strong>${engineer.getName()}</strong></p>
         <p>${engineer.getID()}</p>
-        <p><a href=${engineer.getEmail()}>${engineer.getEmail()}</a></p>
-        <p><a href=${engineer.getGithub()}>${engineer.getGithub()}</a></p>
+        <p><a href="${engineer.getEmail()}">${engineer.getEmail()}</a></p>
+        <p><a href="${engineer.getGithub()}">${engineer.getGithub()}</a></p>
         </div>`
     }
 
@@ -64,7 +64,7 @@ function generateHTML(data) {
     }
     .cards {
         display: inline-flex;
-        margin-left: 520px;
+        margin-left: auto;
     }
     .cardBody {
         border: 1px solid rgb(19, 52, 241);
@@ -77,6 +77,7 @@ function generateHTML(data) {
         margin-top: 0;
         background-color: rgb(19, 52, 241);
         text-align: center;
+        font-size: 24px;
     }
     .manHeading {
         background-color: rgb(218, 85, 32);
@@ -92,6 +93,7 @@ function generateHTML(data) {
     }
     #manager, #engineer, #intern {
         padding: 5px;
+        font-size: 20px;
     }
     </style>
 </head>
