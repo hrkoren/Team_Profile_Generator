@@ -6,16 +6,39 @@ function generateHTML(data) {
 
     const generateManager = manager => {
         return `<div class="cardBody" id="manager">
-        <h2 class="manHeading">${manager.getName()}</h2>
-        <p>${manager.employeeID}</p>
-        <p>${manager.managerEmail}</p>
-        <p>${manager.managerPhone}</p>
+        <h2 class="manHeading">${manager.getRole()}</h2>
+        <p><strong>${manager.getName()}</strong></p>
+        <p>${manager.getID()}</p>
+        <p>${manager.getEmail()}</p>
+        <p>${manager.getPhone()}</p>
+        </div>`
+    }
+
+    const generateEngineer = engineer => {
+        return `<div class="cardBody" id="engineer">
+        <h2 class="engHeading">${engineer.getRole()}</h2>
+        <p><strong>${engineer.getName()}</strong></p>
+        <p>${engineer.getID()}</p>
+        <p>${engineer.getEmail()}</p>
+        <p>${engineer.getGithub()}</p>
+        </div>`
+    }
+
+    const generateIntern = intern => {
+        return `<div class="cardBody" id="intern">
+        <h2 class="intHeading">${intern.getRole()}</h2>
+        <p><strong>${intern.getName()}</strong></p>
+        <p>${intern.getID()}</p>
+        <p>${intern.getEmail()}</p>
+        <p>"${intern.getGithub()}</p>
+        <p>${intern.getSchool()}</p>
         </div>`
     }
 
     const html = []
 
     html.push(data.filter(employee => employee.getRole() === 'Manager').map(manager => generateManager(manager)))
+    html.push(data.filter(employee => employee.getRole() === 'Engineer').map(engineer => generateEngineer(engineer)))
 
 
 
@@ -76,25 +99,7 @@ function generateHTML(data) {
     <h1>Team Profiles<h1>
     </div>
     <div class="cards">
-    <div class="cardBody" id="manager">
-    <h2 class="manHeading">${Manager.name}</h2>
-    <p>${Manager.managerID}</p>
-    <p>${Manager.managerEmail}</p>
-    <p>${Manager.managerPhone}</p>
-    </div>
-    <div class="cardBody" id="engineer">
-    <h2 class="engHeading">${Engineer.name}</h2>
-    <p>${Engineer.employeeID}</p>
-    <p>${Engineer.employeeEmail}</p>
-    <p>${Engineer.github}</p>
-    </div>
-    <div class="cardBody" id="intern">
-    <h2 class="intHeading">${Intern.name}</h2>
-    <p>${Intern.employeeID}</p>
-    <p>${Intern.employeeEmail}</p>
-    <p>"${Intern.github}</p>
-    <p>${Intern.school}</p>
-    </div>
+    ${html.join("")}
 </body>
 </html>`
 }

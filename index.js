@@ -1,9 +1,9 @@
 //Packages needed for application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const employee = require('./Dev/Employee.js');
-const engineer = require('./Dev/Engineer');
-const intern = require('./Dev/Intern');
+const Employee = require('./Dev/Employee.js');
+const Engineer = require('./Dev/Engineer');
+const Intern = require('./Dev/Intern');
 const Manager = require('./Dev/Manager');
 const generateHTML = require('./Dev/team_profile.js');
 
@@ -141,7 +141,7 @@ function internChoice() {
             },
         ]).then(internInfo => {
             const { name, employeeID, employeeEmail, github, school } = internInfo;
-            const engineer = new Engineer(name, employeeID, employeeEmail, github, school)
+            const intern = new Intern(name, employeeID, employeeEmail, github, school)
             teamMembers.push(intern)
             employeeChoice();
         });
