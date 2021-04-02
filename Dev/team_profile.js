@@ -9,7 +9,7 @@ function generateHTML(data) {
         <h2 class="manHeading">${manager.getRole()}</h2>
         <p><strong>${manager.getName()}</strong></p>
         <p>${manager.getID()}</p>
-        <p>${manager.getEmail()}</p>
+        <p><a href=${manager.getEmail()}>${manager.getEmail()}</a></p>
         <p>${manager.getPhone()}</p>
         </div>`
     }
@@ -19,8 +19,8 @@ function generateHTML(data) {
         <h2 class="engHeading">${engineer.getRole()}</h2>
         <p><strong>${engineer.getName()}</strong></p>
         <p>${engineer.getID()}</p>
-        <p>${engineer.getEmail()}</p>
-        <p>${engineer.getGithub()}</p>
+        <p><a href=${engineer.getEmail()}>${engineer.getEmail()}</a></p>
+        <p><a href=${engineer.getGithub()}>${engineer.getGithub()}</a></p>
         </div>`
     }
 
@@ -29,8 +29,8 @@ function generateHTML(data) {
         <h2 class="intHeading">${intern.getRole()}</h2>
         <p><strong>${intern.getName()}</strong></p>
         <p>${intern.getID()}</p>
-        <p>${intern.getEmail()}</p>
-        <p>"${intern.getGithub()}</p>
+        <p><a href=${intern.getEmail()}>${intern.getEmail()}</a></p>
+        <p><a href=${intern.getGithub()}>${intern.getGithub()}</a></p>
         <p>${intern.getSchool()}</p>
         </div>`
     }
