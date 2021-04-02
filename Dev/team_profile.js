@@ -37,12 +37,13 @@ function generateHTML(data) {
 
     const html = []
 
+    //push data for each employee into html
     html.push(data.filter(employee => employee.getRole() === 'Manager').map(manager => generateManager(manager)))
     html.push(data.filter(employee => employee.getRole() === 'Engineer').map(engineer => generateEngineer(engineer)))
+    html.push(data.filter(employee => employee.getRole() === 'Intern').map(intern => generateIntern(intern)))
 
 
-
-    // console.log(data);
+    // html format
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
