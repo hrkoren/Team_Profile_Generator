@@ -99,10 +99,10 @@ function engineerChoice() {
                 validate: (value) => { if (value) { return true } else { return 'Please enter the GitHub username for the team member.' } },
             },
         ]).then(info => {
-            const engineer = new Engineer() // <-- plug in your values 
+            const { name, employeeID, employeeEmail, github } = info;
+            const engineer = new Engineer(name, employeeID, employeeEmail, github) 
             teamMembers.push(engineer)
             employeeChoice();
-            console.log(info);
         });
 }
 //function to prompt intern questions when intern is selected
@@ -140,8 +140,10 @@ function internChoice() {
                 validate: (value) => { if (value) { return true } else { return 'Please enter the school for the team member.' } },
             },
         ]).then(internInfo => {
+            const { name, employeeID, employeeEmail, github, school } = internInfo;
+            const engineer = new Engineer(name, employeeID, employeeEmail, github, school)
+            teamMembers.push(intern)
             employeeChoice();
-            console.log(internInfo);
         });
 }
 //function to quit prompting and generate html file
