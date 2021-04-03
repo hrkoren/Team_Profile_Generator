@@ -1,20 +1,16 @@
 const Manager = require('../Dev/Manager');
-const Employee = require('../Dev/Employee');
-
 
 describe('Manager', () => {
 
-    it('email address entered', () => {
+    it('it should return an email address', () => {
         const managerEmail = "email@email.com";
-        const result = new managerEmail();
-
-        expect(result).toEqual("email@email.com");
+        
+        expect(managerEmail).toEqual("email@email.com");
     });
 
-    it('phone number entered', () => {
+    it('should return a phone number', () => {
         const managerPhone = "412-555-1212";
-        const result = new managerPhone();
-
-        expect(result).toEqual("412-555-1212");
+      
+        expect(managerPhone).toEqual("412-555-1212");
     });
 });

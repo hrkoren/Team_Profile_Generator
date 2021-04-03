@@ -71,6 +71,8 @@ function generateHTML(data) {
         padding: 4px;
         margin: 15px 15px 5px 15px;
         align-content: center;
+        width: 200px;
+        text-align: center;
     }
     h2 {
         padding: 2px;

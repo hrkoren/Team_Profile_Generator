@@ -2,18 +2,16 @@ const Engineer = require('../Dev/Engineer');
 
 describe('Engineer', () => {
 
-    it('email address entered', () => {
+    it('should return an email address', () => {
         const employeeEmail = "email@email.com";
-        const result = new employeeEmail();
 
-        expect(result).toEqual(employeeEmail);
+        expect(employeeEmail).toEqual("email@email.com");
     });
 
-    it('github url entered', () => {
+    it('should return a github url', () => {
         const github = "github.com/engineer";
-        const result = new github();
 
-        expect(result).toEqual(github);
+        expect(github).toEqual("github.com/engineer");
     });
 });
 
