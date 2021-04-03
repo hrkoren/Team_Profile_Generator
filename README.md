@@ -24,6 +24,7 @@ In order to use the team profile generator:
 ## Usage
 __________________________________________________________________________________________________________________________________________________
 This program can be used with permission to generate a list of team members that includes their name, employee ID, email, and Github user profile address. For the team manager, you can also store a phone number and for an intern, their school.
+
 ![Animated Gif](./Src/Team_Profile.gif)\
 <video width="320" height="240" controls>
     <source src="./Src/Team_Profile.mp4" type="video/mp4">

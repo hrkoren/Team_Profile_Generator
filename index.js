@@ -1,11 +1,11 @@
 //Packages needed for application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const Employee = require('./Dev/Employee.js');
-const Engineer = require('./Dev/Engineer');
-const Intern = require('./Dev/Intern');
-const Manager = require('./Dev/Manager');
-const generateHTML = require('./Dev/team_profile.js');
+const Employee = require('./Lib/Employee.js');
+const Engineer = require('./Lib/Engineer');
+const Intern = require('./Lib/Intern');
+const Manager = require('./Lib/Manager');
+const generateHTML = require('./Lib/team_profile.js');
 
 //Array of prompts for user input
 const profilePrompts = [];
